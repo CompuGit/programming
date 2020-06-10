@@ -14,4 +14,4 @@ EnDe Editor Version 1.0 Released on 11/6/20
 
 $$$ Program Framed by Poorna Venkata Sai (CompuGit Admin) $$$
 
-https://github.com/CompuGit/programming/tree/master/EnDe%20Editor-v1
+https://github.com/CompuGit/programming/tree/master/EnDe%20Editor
