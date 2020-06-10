@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title> Js-Php | CompuGit </title>
+		
+		<script>
+
+			//This Function called when we as to process JS
+			function show(method){
+				
+				first = document.getElementById('first').value;
+				last = document.getElementById('last').value;
+
+				//Constructing a query string for php
+				data = "first="+first+"&last="+last;
+				
+				ask_php(data,method);
+			}
+			
+			//This Function is called when we want to invoke php
+			function ask_php(data_pass,method)
+			{
+				//XMLHttpRequest is Asynchronous Javascript Xml Function simply called AJAX.
+				
+				xhttp = new XMLHttpRequest();
+				xhttp.onreadystatechange = function() 
+				{
+					if (this.readyState == 4 && this.status == 200) 
+					{
+						
+						//Whatever the php sends received by JS and displayed in pop-up
+						
+						alert(this.responseText);
+					}
+				};
+				
+				if (method == 'POST')
+				{
+					
+					//statements to send data to php through POST method
+				
+					xhttp.open("POST", "work.php", true);
+					xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+					xhttp.send(data_pass);  
+				}
+				
+				if (method == 'GET')
+				{
+				
+					//statements to send data to php through GET method
+				
+					xhttp.open("GET", "work.php?"+data_pass, true);
+					xhttp.send();
+				}
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<center>
+			<br/>
+
+			<i><h3 style="color:blue;">Js <=> Php ; Using POST and GET Methods.</h3></i>
+			
+			<input id="first" placeholder="Enter Firstname" />
+			<br/><br/>
+			<input id="last" Placeholder="Enter Lastname" />
+			<br/><br/>
+			<button onclick="show('POST')"><span style="color:red;">Submit on POST METHOD</span></button>&nbsp;
+			<button onclick="show('GET')"><span style="color:red;">Submit on GET METHOD</span></button>
+
+			<br/><br/>			
+
+			<p><b>POST Method</b> : It is used to send data from a form or JS code to server. This Requests are hidden to the client.</p>
+			<p><b>GET Method</b> : It is used to receive data from server according to Request in the query, Faster than POST and Requests are visible.</p>
+			<br/>
+			<p style="color:green;"><b><i> $$$ Program Framed by Poorna Venkata Sai (CompuGit Admin) $$$</i></b></p>
+		</center>
+	</body>
+
+</html>
